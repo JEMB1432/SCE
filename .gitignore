@@ -1,0 +1,101 @@
+# Dependencias de Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de configuración sensibles
+config/*.json
+config/private-keys.json
+supabase-config.json
+
+# Logs
+logs/
+*.log
+
+# Archivos del sistema
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Archivos de sistema operativo
+# Windows
+[Tt]humbs.db
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Archivos de build/dist
+dist/
+build/
+.out/
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Archivos temporales
+*.tmp
+*.temp
+.tmp/
+
+# Backup files
+*.backup
+*.bak
+
+# Archivos de base de datos local (si usas alguna para desarrollo)
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos de sesión
+*.session.json
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Archivos generados por el usuario
+uploads/
+temp/
+public/uploads/
+public/temp/
+
+# Certificados SSL (nunca versionar)
+*.pem
+*.key
+*.crt
+*.csr
+
+# Archivos específicos de Supabase
+.supabase/
+
+# Archivos de reportes generados
+reports/*.pdf
+!reports/example.pdf
+
+# Archivos de medios subidos por usuarios
+media/
+assets/uploads/

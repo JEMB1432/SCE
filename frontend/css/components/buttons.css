@@ -1,0 +1,74 @@
+.btn-primary {
+    background-color: var(--accent-clr);
+    color: white;
+    border: none;
+    padding: 10px var(--spacing-xl);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    white-space: nowrap;
+    font-family: inherit;
+}
+
+.btn-primary:hover {
+    background-color: #264040;
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    padding: 10px var(--spacing-xl);
+    border: 1px solid var(--line-clr);
+    background: var(--base-clr);
+    color: var(--text-clr);
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    font-family: inherit;
+}
+
+.btn-secondary:hover {
+    background-color: var(--hover-clr);
+    border-color: #d0d0d0;
+}
+
+.btn-icon {
+    padding: 6px 10px;
+    border: 1px solid var(--line-clr);
+    background: var(--base-clr);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 13px;
+    transition: all var(--transition-normal);
+    color: var(--secondary-text-clr);
+    font-family: inherit;
+}
+
+.btn-icon:hover {
+    border-color: var(--accent-clr);
+    color: var(--accent-clr);
+    background-color: var(--hover-clr);
+}
+
+.action-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* Responsive buttons */
+@media(max-width: 800px) {
+    .btn-primary {
+        width: 100%;
+    }
+    
+    .btn-secondary {
+        width: 100%;
+    }
+}

@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Colores principales */
+    --base-clr: #ffffff;
+    --line-clr: #e5e5e5;
+    --hover-clr: #f5f5f5;
+    --text-clr: #1a1a1a;
+    --accent-clr: #305252;
+    --secondary-text-clr: #666666;
+    --background-clr: #fafafa;
+    
+    /* Colores de estado */
+    --success-bg: #e8f5e9;
+    --success-text: #2e7d32;
+    --inactive-bg: #f5f5f5;
+    --inactive-text: #757575;
+    
+    /* Espaciados */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 20px;
+    --spacing-2xl: 24px;
+    --spacing-3xl: 32px;
+    
+    /* Bordes */
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.2);
+    
+    /* Transiciones */
+    --transition-fast: 150ms ease;
+    --transition-normal: 200ms ease;
+    --transition-slow: 300ms ease-in-out;
+}

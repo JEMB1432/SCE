@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Materias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <ul>
+            <li>
+                <span class="logo">S C E</span>
+                <button onclick="toggleSidebar()" class="toggle-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                        <path d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z"/>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                        <path d="M240-200h120v-200q0-17 11.5-28.5T400-440h160q17 0 28.5 11.5T600-400v200h120v-360L480-740 240-560v360Zm-80 0v-360q0-19 8.5-36t23.5-28l240-180q21-16 48-16t48 16l240 180q15 11 23.5 28t8.5 36v360q0 33-23.5 56.5T720-120H560q-17 0-28.5-11.5T520-160v-200h-80v200q0 17-11.5 28.5T400-120H240q-33 0-56.5-23.5T160-200Zm320-270Z"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                        <path d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-240v-32q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v32q0 33-23.5 56.5T720-160H240q-33 0-56.5-23.5T160-240Z"/>
+                    </svg>
+                    <span>Estudiantes</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                        <path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-560v-160H240v640h480v-480H520Z"/>
+                    </svg>
+                    <span>Materias</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                        <path d="M319-250h322q8 0 14-6t6-14q0-8-6-14t-14-6H319q-8 0-14 6t-6 14q0 8 6 14t14 6Zm0-170h322q8 0 14-6t6-14q0-8-6-14t-14-6H319q-8 0-14 6t-6 14q0 8 6 14t14 6Zm361 260H280q-33 0-56.5-23.5T200-240v-560q0-33 23.5-56.5T280-880h280l200 200v440q0 33-23.5 56.5T680-160ZM520-640v-160H280v560h400v-400H520Z"/>
+                    </svg>
+                    <span>Calificaciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                        <path d="M320-240h320v-80H320v80Zm0-160h320v-80H320v80ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520Z"/>
+                    </svg>
+                    <span>Reportes</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                        <path d="m403-96-22-114q-23-9-44.5-21T296-259l-110 37-77-133 87-76q-2-12-3-24t-1-25q0-13 1-25t3-24l-87-76 77-133 110 37q19-16 40.5-28t44.5-21l22-114h154l22 114q23 9 44.5 21t40.5 28l110-37 77 133-87 76q2 12 3 24t1 25q0 13-1 25t-3 24l87 76-77 133-110-37q-19 16-40.5 28T579-210L557-96H403Zm77-304q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z"/>
+                    </svg>
+                    <span>Configuración</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="header">
+            <h1>Materias</h1>
+            <p>Gestiona las materias del sistema académico</p>
+        </div>
+
+        <div class="action-bar">
+            <div class="search-wrapper">
+                <span class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#515151" d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" stroke-width="0.5" stroke="#515151"/></svg>
+                </span>
+                <input type="text" class="search-box" placeholder="Buscar por nombre o código...">
+            </div>
+            <div class="filter-group">
+                <select class="filter-select">
+                    <option>Todas</option>
+                    <option>Activas</option>
+                    <option>Inactivas</option>
+                </select>
+                <select class="filter-select">
+                    <option>Todos los semestres</option>
+                    <option>1° Semestre</option>
+                    <option>2° Semestre</option>
+                    <option>3° Semestre</option>
+                </select>
+                <button class="btn-primary" onclick="openModal()">+ Nueva Materia</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Materia</th>
+                        <th>Créditos</th>
+                        <th>Semestre</th>
+                        <th>Inscritos</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="subject-code">MAT101</span></td>
+                        <td><span class="subject-name">Matemáticas I</span></td>
+                        <td>6</td>
+                        <td>1°</td>
+                        <td>45</td>
+                        <td><span class="badge active">Activa</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon" onclick="editSubject()">Editar</button>
+                                <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="subject-code">PRG201</span></td>
+                        <td><span class="subject-name">Programación Avanzada</span></td>
+                        <td>8</td>
+                        <td>2°</td>
+                        <td>38</td>
+                        <td><span class="badge active">Activa</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon" onclick="editSubject()">Editar</button>
+                                <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="subject-code">FIS102</span></td>
+                        <td><span class="subject-name">Física General</span></td>
+                        <td>6</td>
+                        <td>1°</td>
+                        <td>42</td>
+                        <td><span class="badge active">Activa</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon" onclick="editSubject()">Editar</button>
+                                <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="subject-code">QUI103</span></td>
+                        <td><span class="subject-name">Química Orgánica</span></td>
+                        <td>5</td>
+                        <td>1°</td>
+                        <td>35</td>
+                        <td><span class="badge inactive">Inactiva</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon" onclick="editSubject()">Editar</button>
+                                <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="subject-code">ING104</span></td>
+                        <td><span class="subject-name">Inglés Técnico</span></td>
+                        <td>4</td>
+                        <td>2°</td>
+                        <td>50</td>
+                        <td><span class="badge active">Activa</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon" onclick="editSubject()">Editar</button>
+                                <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="subject-code">EST105</span></td>
+                        <td><span class="subject-name">Estadística Aplicada</span></td>
+                        <td>6</td>
+                        <td>2°</td>
+                        <td>40</td>
+                        <td><span class="badge active">Activa</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon" onclick="editSubject()">Editar</button>
+                                <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="subject-code">BD201</span></td>
+                        <td><span class="subject-name">Bases de Datos</span></td>
+                        <td>7</td>
+                        <td>3°</td>
+                        <td>33</td>
+                        <td><span class="badge active">Activa</span></td>
+                        <td>
+                            <div class="action-buttons">
+                                <button class="btn-icon" onclick="editSubject()">Editar</button>
+                                <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Mobile Card View -->
+            <div class="mobile-cards">
+                <div class="subject-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="subject-name">Matemáticas I</span>
+                            <span class="subject-code">MAT101</span>
+                        </div>
+                        <span class="badge active">Activa</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-label">Créditos</span>
+                            <span class="info-value">6</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Semestre</span>
+                            <span class="info-value">1°</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Inscritos</span>
+                            <span class="info-value">45</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-icon" onclick="editSubject()">Editar</button>
+                        <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="subject-name">Programación Avanzada</span>
+                            <span class="subject-code">PRG201</span>
+                        </div>
+                        <span class="badge active">Activa</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-label">Créditos</span>
+                            <span class="info-value">8</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Semestre</span>
+                            <span class="info-value">2°</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Inscritos</span>
+                            <span class="info-value">38</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-icon" onclick="editSubject()">Editar</button>
+                        <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="subject-name">Física General</span>
+                            <span class="subject-code">FIS102</span>
+                        </div>
+                        <span class="badge active">Activa</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-label">Créditos</span>
+                            <span class="info-value">6</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Semestre</span>
+                            <span class="info-value">1°</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Inscritos</span>
+                            <span class="info-value">42</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-icon" onclick="editSubject()">Editar</button>
+                        <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="subject-name">Química Orgánica</span>
+                            <span class="subject-code">QUI103</span>
+                        </div>
+                        <span class="badge inactive">Inactiva</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-label">Créditos</span>
+                            <span class="info-value">5</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Semestre</span>
+                            <span class="info-value">1°</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Inscritos</span>
+                            <span class="info-value">35</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-icon" onclick="editSubject()">Editar</button>
+                        <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                    </div>
+                </div>
+
+                <div class="subject-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span class="subject-name">Inglés Técnico</span>
+                            <span class="subject-code">ING104</span>
+                        </div>
+                        <span class="badge active">Activa</span>
+                    </div>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span class="info-label">Créditos</span>
+                            <span class="info-value">4</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Semestre</span>
+                            <span class="info-value">2°</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Inscritos</span>
+                            <span class="info-value">50</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-icon" onclick="editSubject()">Editar</button>
+                        <button class="btn-icon" onclick="deleteSubject()">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nueva Materia</h2>
+            </div>
+            <form>
+                <div class="input-group">
+                    <div class="form-group">
+                        <label>Código</label>
+                        <input type="text" placeholder="MAT101" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre de la materia</label>
+                        <input type="text" placeholder="Matemáticas I" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Créditos</label>
+                    <input type="number" placeholder="6" required>
+                </div>
+                <div class="form-group">
+                    <label>Semestre</label>
+                    <select required>
+                        <option value="">Seleccionar...</option>
+                        <option>1° Semestre</option>
+                        <option>2° Semestre</option>
+                        <option>3° Semestre</option>
+                        <option>4° Semestre</option>
+                        <option>5° Semestre</option>
+                        <option>6° Semestre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Descripción (opcional)</label>
+                    <textarea placeholder="Descripción de la materia..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Estado</label>
+                    <select required>
+                        <option>Activa</option>
+                        <option>Inactiva</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn-primary" onclick="saveSubject(event)">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
