@@ -87,3 +87,47 @@ CREATE INDEX idx_enrollments_subject_id ON enrollments(subject_id);
 CREATE INDEX idx_grades_enrollment_id ON grades(enrollment_id);
 CREATE INDEX idx_students_email ON students(email);
 CREATE INDEX idx_subjects_code ON subjects(subject_code);
+
+
+CREATE VIEW student_grades_detail AS
+SELECT 
+    s.student_code,
+    s.first_name,
+    s.last_name,
+    sub.subject_code,
+    sub.name as subject_name,
+    sub.credits,
+    e.academic_year,
+    e.semester,
+    et.name as evaluation_name,
+    et.weight as evaluation_weight,
+    g.score,
+    g.graded_at
+FROM students s
+JOIN enrollments e ON s.id = e.student_id
+JOIN subjects sub ON e.subject_id = sub.id
+JOIN evaluation_types et ON sub.id = et.subject_id
+LEFT JOIN grades g ON e.id = g.enrollment_id AND et.id = g.evaluation_type_id;
+
+CREATE VIEW student_subject_grades AS
+SELECT 
+    s.id as student_id,
+    s.student_code,
+    s.first_name,
+    s.last_name,
+    sub.id as subject_id,
+    sub.subject_code,
+    sub.name as subject_name,
+    e.academic_year,
+    e.semester,
+    COUNT(g.id) as evaluations_completed,
+    AVG(g.score) as average_score,
+    SUM(et.weight * g.score / 100) as weighted_average
+FROM students s
+JOIN enrollments e ON s.id = e.student_id
+JOIN subjects sub ON e.subject_id = sub.id
+JOIN evaluation_types et ON sub.id = et.subject_id
+LEFT JOIN grades g ON e.id = g.enrollment_id AND et.id = g.evaluation_type_id
+WHERE g.score IS NOT NULL
+GROUP BY s.id, s.student_code, s.first_name, s.last_name, 
+         sub.id, sub.subject_code, sub.name, e.academic_year, e.semester;   
