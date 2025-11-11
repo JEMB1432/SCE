@@ -7,6 +7,7 @@ const subjectRoutes = require("./subjects");
 const enrollmentRoutes = require("./enrollments");
 const gradeRoutes = require("./grades");
 const evaluationTypeRoutes = require("./evaluationTypes");
+const authRoutes = require('./auth');
 
 // Usar las rutas
 router.use("/students", studentRoutes);
@@ -14,6 +15,8 @@ router.use("/subjects", subjectRoutes);
 router.use("/enrollments", enrollmentRoutes);
 router.use("/grades", gradeRoutes);
 router.use("/evaluation-types", evaluationTypeRoutes);
+router.use('/auth', authRoutes);
+
 
 // Ruta de documentación de la API
 router.get("/", (req, res) => {
